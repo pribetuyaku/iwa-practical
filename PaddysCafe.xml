@@ -1,4 +1,4 @@
-<?xml version = "1.0" encoding = "UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <menu>
     <section name="Drinks">
         <entry>
@@ -11,8 +11,8 @@
         </entry>
         <entry vegetarian="true">
             <item>Kombucha</item>
-            <price>2.00</price>
-        </entry>
+            <price>2.0</price>
+        </entry>        
     </section>
     <section name="Side Dishes">
         <entry>
@@ -24,50 +24,50 @@
             <price>4.50</price>
         </entry>
         <entry vegetarian="true">
-            <item>Potato mix</item>
-            <price>2.00</price>
-        </entry>
+            <item>Rice</item>
+            <price>4.0</price>
+        </entry>        
     </section>
     <section name="Breakfast">
         <entry>
-            <item>French Toast</item>
-            <price>2.00</price>
+            <item>Eggs Benedict</item>
+            <price>12.99</price>
         </entry>
         <entry>
             <item>Poached Eggs</item>
             <price>8</price>
         </entry>
         <entry vegetarian="true">
-            <item>Ricota Roll</item>
-            <price>2.00</price>
-        </entry>
+            <item>FrenchToast</item>
+            <price>2.0</price>
+        </entry>        
     </section>
     <section name="Lunch">
         <entry>
-            <item>Chicken Sandwich</item>
-            <price>8</price>
+            <item>Grilled Chicken Sadnwich</item>
+            <price>7.50</price>
         </entry>
         <entry>
-            <item>Beef Sandwich</item>
-            <price>8</price>
+            <item>Soup of the Day</item>
+            <price>6</price>
         </entry>
         <entry vegetarian="true">
-            <item>Tomato soup</item>
-            <price>4.20</price>
-        </entry>
+            <item>Falafel</item>
+            <price>10</price>
+        </entry>        
     </section>
     <section name="Dinner">
         <entry>
-            <item>Steak</item>
-            <price>16.00</price>
+            <item>Ribeye Steak</item>
+            <price>19.99</price>
         </entry>
         <entry>
-            <item>Salmon</item>
-            <price>18</price>
+            <item>Sushi</item>
+            <price>15</price>
         </entry>
         <entry vegetarian="true">
-            <item>Ricota Lasagne</item>
-            <price>12</price>
-        </entry>
+            <item>Shahshuka</item>
+            <price>15</price>
+        </entry>        
     </section>
 </menu>

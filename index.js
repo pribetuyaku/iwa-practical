@@ -1,36 +1,38 @@
-const  express = require('express'), //Allows to respond to http requests, defining routing and rendes the requied content
-       fs = require ('fs'), //working with the file system (read and write)
-       http = require('http'), //http server
-       path = require('path'), // utility that allows us to work with directory
-       xml2js = require('xml2js'),//xml -> json conveter
-       xmlParse = require('xslt-processor').xmlParse, //parsing xml
-       xsltProcess = require('xslt-processor').xsltProcess; //processing xslt
+const   express = require('express'), //Allows to respond to HTTP requests, defines routing and renders the required content
+        fs = require('fs'), //Working with the file system (read and write files)
+        http = require('http'), //HTTP Server
+        path = require('path'), //Utility that allows us to work with directory paths
+        xml2js = require('xml2js'), //This is XML <-> JSON converter
+        xmlParse = require('xslt-processor').xmlParse, //Parsing XML
+        xsltProcess = require('xslt-processor').xsltProcess; //Processing XSLT
 
-const   router = express(),
-        server = http.createServer(router);
+const   router = express(), //Instantiating Express
+        server = http.createServer(router); //Instantiating the server
 
-router.use(express.static(path.resolve(__dirname,'views'))); //serving static content from views folder
+router.use(express.static(path.resolve(__dirname,'views'))); //Serving static content from "views" folder
 
-router.get('/', function(req,res){
-     res.writeHead(200,{'Content-Type' : 'text/html'})
-     let xml = fs.readFileSync('PaddysCafe.xml','utf-8'),
-        xsl = fs.readFileSync('PaddysCafe.xsl', 'utf-8');
+router.get('/', function(req, res) {
+
+    res.writeHead(200, {'Content-Type' : 'text/html'}); //Tell the user that the resource exists and which type that is
+
+    let xml = fs.readFileSync('PaddysCafe.xml', 'utf8'), //read in the XML file
+        xsl = fs.readFileSync('PaddysCafe.xsl', 'utf8'); //read in the XSL file
 
     console.log(xml);
     console.log(xsl);
 
-    let doc = xmlParse(xml),
-        stylesheet = xmlParse(xsl);
+    let doc = xmlParse(xml), //Parse the XML file
+        stylesheet = xmlParse(xsl); //Parse the XSL file
 
-    let result = xsltProcess(doc,stylesheet);
+    let result = xsltProcess(doc, stylesheet); //Performing XSLT
 
     console.log(result);
 
-    res.end(result.toString());
+    res.end(result.toString()); //Serve back the user
+
 });
 
-server.listen(process.env.PORT  || 3000, process.env.IP  || "0.0.0.0", function(){
-    const adddr = server.address();
-    console.log('Server listening at', adddr.address + ':' + adddr.port)
+server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+    const addr = server.address();
+    console.log('Server listening at', addr.address + ':' + addr.port)
 });
-
